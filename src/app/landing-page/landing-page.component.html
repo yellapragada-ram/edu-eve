@@ -1,0 +1,105 @@
+<div class="flex pb-4">
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round">EDUEVE</div>
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round mx-4">
+    <div class="search p-mr-2">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Search Event"
+          style="width: 700px"
+        />
+      </span>
+    </div>
+  </div>
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round">
+    <button
+      pButton
+      type="button"
+      label="Login"
+      (click)="showDialog()" 
+      class="p-button p-button-rounded p-button-outlined p-mr-3"
+      style="margin-right: 5px"
+    ></button>
+    <a routerLink="/sign-up">
+    <button
+      pButton
+      type="button"
+      label="Sign Up"
+      class="p-button p-button-rounded p-button-primary"
+    ></button></a>
+    <p-dialog header="Login" [modal]="true" [(visible)]="visible" [style]="{width: '30vw'}">
+      <app-login-signup></app-login-signup>
+  </p-dialog>
+  </div>
+</div>
+<p-card>
+  <div class="grid" style="height: 30rem">
+    <div class="col-6">
+      <div class="text-center p-3 border-round-sm font-bold">
+        <h1>The people platform—Where interests become friendships</h1>
+        <p>
+          Whatever your interest, from hiking and reading to networking and
+          skill sharing, there are thousands of people who share it on Edu Eve.
+          Events are happening every day—sign up to join the fun.
+        </p>
+        <p>
+          <a routerLink="/host-event"><button
+            pButton
+            type="button"
+            label="Host Event"
+            class="p-button p-button-rounded p-button-outlined p-mr-2"
+            (onClick)="navToHostEvent()"
+          ></button></a>
+        </p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="text-center p-3 border-round-sm font-bold">
+        <p-image
+          src="../../assets/event4.jpg"
+          alt="Image"
+          height="400px"
+          width="600px"
+        ></p-image>
+      </div>
+    </div>
+  </div>
+</p-card>
+<div>
+  <div class="card grid justify-content-center pt-5">
+    <div class="p-col-4 pb-4 pr-4" *ngFor="let eventCard of eventCards">
+        <a routerLink="/event-details"> <p-card
+        appendTo="body"
+        [header]="eventCard.title"
+        [subheader]="eventCard.subheader"
+        [style]="{ width: '300px' }"
+      >
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            [src]="eventCard.imageUrl"
+            style="height: 200px; width: 300px"
+          />
+        </ng-template>
+        <p style="margin: 1px">
+          <i class="pi pi-calendar"> {{ eventCard.dateTime }}</i
+          ><br />
+          <i class="pi pi-eye"> {{ eventCard.mode }}</i
+          ><br />
+          <i class="pi pi-check-circle"> {{ eventCard.attending }} attending</i
+          ><br />
+          <i class="pi pi-ticket pb-2"> {{ eventCard.ticket }}</i
+          ><br />
+        <p-button
+            label="More Details"
+            icon="pi pi-info-circle"
+            (onClick)="navToEvent()"
+          ></p-button>
+        </p>
+      </p-card>
+      </a>
+    </div>
+  </div>
+</div>

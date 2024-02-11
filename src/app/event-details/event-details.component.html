@@ -1,0 +1,125 @@
+<div class="flex pb-4">
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round">EDUEVE</div>
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round mx-4">
+      <div class="search p-mr-2">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            pInputText
+            placeholder="Search Event"
+            style="width: 500px"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round">
+        <a routerLink="/host-event">
+      <button
+        pButton
+        type="button"
+        label="Host an Event"
+        class="p-button p-button-rounded p-button-outlined p-mr-3"
+        style="margin-right: 5px"
+      ></button>
+  </a>
+  <a routerLink="/">
+      <button
+        pButton
+        type="button"
+        label="Logout"
+        class="p-button p-button-rounded p-button-primary"
+      ></button></a>
+    </div>
+  </div>
+<div class="grid grid-nogutter h-full">
+    <div class="col-12">
+            <p-card>
+                <h1 class="text-left text-lg">Finance Professional Networking Forum - Meet and Greet 28 Jan 2024, 07:00 PM</h1>
+                <p class="m-0 text-left text-500">
+                   Hosted by : Ram
+                </p>
+                <div class="flex flex-row-reverse">
+                    <p-confirmPopup></p-confirmPopup>
+                    <button
+        pButton
+        type="button"
+        label="Attend Event"
+        (click)="confirm1($event)"
+        class="p-button p-button-rounded p-button-outlined p-mr-3"
+        style="margin-right: 5px"
+      ></button>
+      <p-toast></p-toast>
+                    </div>
+            </p-card>
+    </div>
+    <div class="col-8" style="padding: 80px; background-color: #f6f7f8;">
+        <div class="text-center p-3 border-round-sm font-bold h-full">
+            <!-- Image -->
+            <img src="../../assets/Event1.jpg" alt="Image" class="mx-auto mb-3">
+    
+            <!-- Details Section -->
+            
+                <div class="text-left text-sm">
+                    <!-- Details Content -->
+                    <p>
+                        <strong>Details:</strong>
+                    </p>
+                    <p>
+                        Step into the realm of boundless creativity at the Bombay Content Creators Networking Event! It's not just an event; it's a launching pad for the next viral sensation in our vibrant content ecosystem.
+                    </p>
+                    <p>
+                        Join us for an evening pulsating with innovation, where creators converge to spark collaborations, exchange ideas, and carve out the path for the next big trend. This isn't your typical networking affair—it's a dynamic fusion of minds, a playground where imagination knows no bounds.
+                    </p>
+                    <p>
+                        Nestled in the heart of Bombay's bustling creative hub, this event is designed to ignite inspiration. Engage in lively discussions, immersive workshops, and interactive sessions crafted to unleash your creative potential.
+                    </p>
+                    <p>
+                        Rub shoulders with industry trailblazers, influencers, and fellow creators, all eager to weave their narratives into the fabric of the digital landscape. Whether you're a filmmaker, storyteller, artist, or tech wizard, this is your stage to shine.
+                    </p>
+                    <p>
+                        Together, let's sculpt the future of content creation, transcend boundaries, and script the next viral phenomenon. The Bombay Content Creators Networking Event—it's where connections are made, ideas take flight, and the next big thing is born. Don't just chase trends—create them with us!
+                    </p>
+                </div>
+        </div>
+    </div>
+    
+    <div class="col">
+        <div class="text-center p-3 border-round-sm font-bold h-screen">
+            <div class="col">
+                <div class="text-center p-3 border-round-sm font-bold h-screen">
+                    <p-card
+                        appendTo="body"
+                        header="More Details"
+                        [style]="{ width: '300px' }"
+                      >
+                        <ng-template pTemplate="header">
+                        </ng-template>
+                        <div class="grid pr-3"style="margin: 1px">
+                          <div class="flex justify-content-between">
+                            <i class="pi pi-calendar"></i>
+                                  28 Jan 2024, 07:00 PM
+                          </div>
+                          <div class="grid" style="margin: 1px">
+                          <i class="pi pi-eye"></i
+                          >
+                             ONLINE
+                          </div>
+                          <br />
+                          <div class="grid" style="margin: 1px">
+                            <i class="pi pi-check-circle"></i>
+                               99 attending
+                          </div>
+                          <div class="grid" style="margin: 1px">
+                            <i class="pi pi-ticket pb-2"></i>
+                               Free
+                          </div>
+                          <br />
+                          </div>
+                      </p-card>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

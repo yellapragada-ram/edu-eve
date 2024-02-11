@@ -1,0 +1,75 @@
+<div class="flex pb-4">
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round">EDUEVE</div>
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round mx-4">
+      <div class="search p-mr-2">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            pInputText
+            placeholder="Search Event"
+            style="width: 500px"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="flex-1 h-4rem font-bold text-center p-4 border-round">
+    
+        <a routerLink="/">
+      <button
+        pButton
+        type="button"
+        label="Logout"
+        class="p-button p-button-rounded p-button-primary"
+      ></button></a>
+    </div>
+  </div>
+  <div class="pl-8">
+  <h1>Host an Event</h1>
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="p-d-flex p-flex-column p-justify-center p-align-center">
+  
+  <div class="field grid">
+    <label for="eventName" class="col-12 mb-2 md:col-2 md:mb-0">Event Name</label>
+    <input type="text" id="eventName" formControlName="eventName" pInputText  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3" >
+  </div>
+  <div class="field grid">
+    <label for="hostedBy"  class="col-12 mb-2 md:col-2 md:mb-0">Hosted By</label>
+    <input type="text" id="hostedBy" formControlName="hostedBy" pInputText  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3" >
+  </div>
+  <div class="field grid">
+    <label for="description"  class="col-12 mb-2 md:col-2 md:mb-0">Description</label>
+    <textarea id="description" formControlName="description" pInputTextarea  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3" ></textarea>
+  </div>
+  <div class="field grid">
+    <label for="eventDateTime" class="col-12 mb-2 md:col-2 md:mb-0">Event Date and Time</label>
+    <p-calendar id="eventDateTime" formControlName="eventDateTime"  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3" ></p-calendar>
+  </div>
+  <div class="field grid">
+    <label  class="col-12 mb-2 md:col-2 md:mb-0">Mode Of Event</label>
+    <p-radioButton name="modeOfEvent" formControlName="modeOfEvent" value="ONLINE" [(ngModel)]="modeOfEvent" inputId="modeOfEvent"></p-radioButton>
+    <label for="modeOfEvent" class="ml-2 pr-2">ONLINE</label>
+    <p-radioButton name="modeOfEvent" formControlName="modeOfEvent" value="OFFLINE" [(ngModel)]="modeOfEvent" inputId="modeOfEvent"></p-radioButton>
+    <label for="modeOfEvent" class="ml-2 pr-2">OFFLINE</label>
+  </div>
+  <div class="field grid">
+    <label *ngIf="eventForm.get('modeOfEvent')?.value === 'ONLINE'" for="webinarLink"  class="col-12 mb-2 md:col-2 md:mb-0">Webinar Link</label>
+    <label *ngIf="eventForm.get('modeOfEvent')?.value === 'OFFLINE'" for="venue" class="col-12 mb-2 md:col-2 md:mb-0">Venue</label>
+    <input *ngIf="eventForm.get('modeOfEvent')?.value === 'ONLINE'" type="text" id="webinarLink" formControlName="webinarLink" pInputText  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3"style="width: 200px;">
+    <textarea *ngIf="eventForm.get('modeOfEvent')?.value === 'OFFLINE'" id="venue" formControlName="venue" pInputTextarea  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3"style="width: 200px;"></textarea>
+  </div>
+  <div class="field grid">
+    <label for="paidOrFree"  class="col-12 mb-2 md:col-2 md:mb-0">Paid or Free</label>
+    <p-radioButton name="paidOrFree" formControlName="paidOrFree" value="Free" [(ngModel)]="paidOrFree" inputId="paidOrFree"></p-radioButton>
+    <label for="paidOrFree" class="ml-2 pr-2">Free</label>
+    <p-radioButton name="paidOrFree" formControlName="paidOrFree" value="Paid" [(ngModel)]="paidOrFree" inputId="paidOrFree"></p-radioButton>
+    <label for="paidOrFree" class="ml-2 pr-2">Paid</label>
+  </div>
+  <div class="field grid">
+    <label *ngIf="eventForm.get('paidOrFree')?.value === 'Paid'" for="amount"  class="col-12 mb-2 md:col-2 md:mb-0">Amount</label>
+    <input *ngIf="eventForm.get('paidOrFree')?.value === 'Paid'" type="text" id="amount" formControlName="amount" pInputText  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-3"style="width: 200px;">
+  </div>
+  <button type="submit" pButton class="p-button p-col-12 p-md-6 ml-2 mr-3">Submit Event</button>
+  <a routerLink="/dashboard"> <button type="submit" pButton class="p-button p-col-12 p-md-6" >Cancel</button></a>
+</form>
+
+</div>

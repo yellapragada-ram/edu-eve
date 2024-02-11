@@ -1,0 +1,16 @@
+<!-- login.component.html -->
+
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <div class="p-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" pInputText>
+      </div><br>
+      <div class="p-field pb-4">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" pPassword>
+      </div>
+      <button type="submit" pButton class="p-button-primary" style="margin-left: 20px;" >Login</button>
+    </form>
+  </div>
+  

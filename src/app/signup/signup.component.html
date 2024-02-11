@@ -1,0 +1,46 @@
+<!-- login.component.html -->
+<div class="flex pb-4">
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round">EDUEVE</div>
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round mx-4">
+    <div class="search p-mr-2">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Search Event"
+          style="width: 700px"
+        />
+      </span>
+    </div>
+  </div>
+  <div class="flex-1 h-4rem font-bold text-center p-4 border-round">
+  </div>
+</div>
+<div class="login-container">
+  <form [formGroup]="signUpForm"  (ngSubmit)="signUp()" class="login-form">
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" pInputText>
+    </div><br>  
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" pInputText>
+    </div><br>  
+    <div class="p-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" pInputText>
+      </div><br>
+      <div class="p-field pb-4">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" pPassword>
+      </div>
+      <div class="p-field pb-4">
+        <label for="password">Confirm Password</label>
+        <input type="password" id="password" formControlName="confirmPassword" pPassword>
+      </div>
+      <button type="submit" pButton class="p-button-primary" style="margin-left: 50px;" >Sign Up</button>
+      <button type="submit" pButton class="p-button-primary" style="margin-left: 50px;" >Cancel</button>
+    </form>
+  </div>
+  
